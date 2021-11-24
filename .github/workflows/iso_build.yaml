@@ -51,6 +51,6 @@ jobs:
       -
         name: rollback
         if: ${{ failure() || cancelled() }}
-        run: |
-          echo ${{ github.token }} | gh auth login --with-token
-          gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}
+        run: gh release delete ${{ needs.prepare-release.outputs.release_tag }} -y --repo ${{ github.repository }}
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
