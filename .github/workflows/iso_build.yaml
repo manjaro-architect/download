@@ -39,7 +39,7 @@ jobs:
           format: 'YY.MM'
       -
         name: image-build-upload
-        uses: manjaro-architect/manjaro-iso-action/action.yml@47533a824feefb39cdb418da033446c38ebfa785
+        uses: manjaro-architect/manjaro-iso-action@main
         with:
           edition: ${{ matrix.edition }}
           branch: ${{ matrix.branch }}
