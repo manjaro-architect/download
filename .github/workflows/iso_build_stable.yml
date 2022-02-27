@@ -18,14 +18,14 @@ jobs:
         with:
           format: 'YYYYMMDDHHmm'
     outputs:
-      release_tag: staging_${{ steps.time.outputs.time }}
+      release_tag: stable_${{ steps.time.outputs.time }}
   build-release:
     runs-on: ubuntu-20.04
     needs: [prepare-release]
     strategy:
       matrix:
         EDITION: [architect]
-        BRANCH: [stable-staging]
+        BRANCH: [stable]
         SCOPE: [minimal]
     steps:
       -
@@ -46,7 +46,7 @@ jobs:
           scope: ${{ matrix.scope }}
           version: ${{ steps.time.outputs.time }}-development
           kernel: linux515
-          code-name: "Nightly-Build"
+          code-name: "Unofficial-Stable-Build"
           release-tag: ${{ needs.prepare-release.outputs.release_tag }}
       -
         name: rollback
