@@ -25,6 +25,7 @@ jobs:
     strategy:
       matrix:
         EDITION: [architect]
+        KERNEL: [linux70]
         BRANCH: [stable]
         SCOPE: [minimal]
     steps:
@@ -45,7 +46,7 @@ jobs:
           branch: ${{ matrix.branch }}
           scope: ${{ matrix.scope }}
           version: ${{ steps.time.outputs.time }}
-          kernel: linux618
+          kernel: ${{ matrix.kernel }}
           code-name: "Unofficial-Stable-Build"
           release-tag: ${{ needs.prepare-release.outputs.release_tag }}
       -
