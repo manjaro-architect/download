@@ -25,7 +25,7 @@ jobs:
     strategy:
       matrix:
         EDITION: [architect]
-        KERNEL: [linux71]
+        KERNEL: [linux72]
         BRANCH: [unstable]
         SCOPE: [minimal]
     steps:
